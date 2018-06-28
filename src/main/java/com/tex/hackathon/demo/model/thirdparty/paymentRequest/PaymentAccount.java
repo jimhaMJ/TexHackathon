@@ -1,6 +1,6 @@
 package com.tex.hackathon.demo.model.thirdparty.paymentRequest;
 
-public class Account
+public class PaymentAccount
 {
     private String Name;
 

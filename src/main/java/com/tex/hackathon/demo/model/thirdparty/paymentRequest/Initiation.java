@@ -2,9 +2,9 @@ package com.tex.hackathon.demo.model.thirdparty.paymentRequest;
 
 public class Initiation
 {
-    private Account CreditorAccount;
+    private PaymentAccount creditorPaymentAccount;
 
-    private Account DebtorAccount;
+    private PaymentAccount debtorPaymentAccount;
 
     private String EndToEndIdentification;
 
@@ -14,24 +14,24 @@ public class Initiation
 
     private String InstructionIdentification;
 
-    public Account getCreditorAccount ()
+    public PaymentAccount getCreditorPaymentAccount()
     {
-        return CreditorAccount;
+        return creditorPaymentAccount;
     }
 
-    public void setCreditorAccount (Account CreditorAccount)
+    public void setCreditorPaymentAccount(PaymentAccount creditorPaymentAccount)
     {
-        this.CreditorAccount = CreditorAccount;
+        this.creditorPaymentAccount = creditorPaymentAccount;
     }
 
-    public Account getDebtorAccount ()
+    public PaymentAccount getDebtorPaymentAccount()
     {
-        return DebtorAccount;
+        return debtorPaymentAccount;
     }
 
-    public void setDebtorAccount (Account DebtorAccount)
+    public void setDebtorPaymentAccount(PaymentAccount debtorPaymentAccount)
     {
-        this.DebtorAccount = DebtorAccount;
+        this.debtorPaymentAccount = debtorPaymentAccount;
     }
 
     public String getEndToEndIdentification ()
@@ -77,6 +77,6 @@ public class Initiation
     @Override
     public String toString()
     {
-        return "ClassPojo [CreditorAccount = "+CreditorAccount+", DebtorAccount = "+DebtorAccount+", EndToEndIdentification = "+EndToEndIdentification+", InstructedAmount = "+InstructedAmount+", RemittanceInformation = "+RemittanceInformation+", InstructionIdentification = "+InstructionIdentification+"]";
+        return "ClassPojo [creditorPaymentAccount = "+ creditorPaymentAccount +", debtorPaymentAccount = "+ debtorPaymentAccount +", EndToEndIdentification = "+EndToEndIdentification+", InstructedAmount = "+InstructedAmount+", RemittanceInformation = "+RemittanceInformation+", InstructionIdentification = "+InstructionIdentification+"]";
     }
 }
