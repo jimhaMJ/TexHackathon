@@ -1,4 +1,4 @@
-package com.tex.hackathon.demo.dao.entity;
+package com.tex.hackathon.demo.model.thirdparty.account;
 
 public class Account
 {

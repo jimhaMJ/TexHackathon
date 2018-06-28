@@ -1,6 +1,6 @@
 package com.tex.hackathon.demo.controller;
 
-import com.tex.hackathon.demo.dao.entity.Account;
+import com.tex.hackathon.demo.model.thirdparty.account.Account;
 import com.tex.hackathon.demo.dao.entity.User;
 import com.tex.hackathon.demo.dao.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,10 +10,7 @@ import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
@@ -59,7 +56,10 @@ public class InitController {
                 new ParameterizedTypeReference<List<Account>>() {}).getBody();
 
         return accounts;
-
-
     }
-}
+
+   /* @RequestMapping("/payments")
+    void postPayment(@RequestBody ) {
+        return userRepository.findByUserType(userType);
+    }*/
+    }

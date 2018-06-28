@@ -1,6 +1,6 @@
-package com.tex.hackathon.demo.dao.entity;
+package com.tex.hackathon.demo.model.thirdparty.paymentRequest;
 
-public class Amount
+public class InstructedAmount
 {
     private String Amount;
 
