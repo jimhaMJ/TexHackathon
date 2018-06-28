@@ -1,5 +1,7 @@
 package com.tex.hackathon.demo.controller;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.tex.hackathon.demo.model.thirdparty.account.Account;
 import com.tex.hackathon.demo.dao.entity.User;
 import com.tex.hackathon.demo.dao.repository.UserRepository;
@@ -57,7 +59,7 @@ public class InitController {
     }
 
     @RequestMapping("/payments")
-    String postPayment(@RequestBody InitiatePayment initiatePayment) {
+    String postPayment(@RequestBody InitiatePayment initiatePayment) throws JsonProcessingException {
 
         Account customerAccount = restTemplate.exchange(
                 REST_SERVICE_URI+"/account/accounts/" + initiatePayment.getCustomerAccountId(),
@@ -99,8 +101,8 @@ public class InitController {
         initiation.setInstructionIdentification(instructionIdentification);
         initiation.setInstructedAmount(instructedAmount);
         initiation.setRemittanceInformation(remittanceInformation);
-        initiation.setCreditorPaymentAccount(creditorAccount);
-        initiation.setDebtorPaymentAccount(debtorAccount);
+        initiation.setCreditorAccount(creditorAccount);
+        initiation.setDebtorAccount(debtorAccount);
 
         Data data = new Data();
         data.setInitiation(initiation);
@@ -118,17 +120,16 @@ public class InitController {
         headers.setContentType(MediaType.APPLICATION_JSON);
         headers.set("Authorization", "Bearer "+accessToken);
 
-        HttpEntity<PaymentRequest> entity = new HttpEntity<>(paymentRequest,headers);
+        ObjectMapper mapper = new ObjectMapper();
+        String jsonInString = mapper.writeValueAsString(paymentRequest);
 
-        System.out.println(entity.toString());
+        HttpEntity<String> entity = new HttpEntity<>(jsonInString,headers);
 
-        String paymentResponse = restTemplate.exchange(
-                REST_SERVICE_URI+"/payment/payments",
-                HttpMethod.POST,
-                entity,
-                String.class).getBody();
 
-        return paymentResponse;
+        String response = restTemplate.postForObject(REST_SERVICE_URI+"/payment/payments",
+                entity, String.class);
+
+        return response;
     }
 
     private HttpEntity<String> getHttpEntity (){

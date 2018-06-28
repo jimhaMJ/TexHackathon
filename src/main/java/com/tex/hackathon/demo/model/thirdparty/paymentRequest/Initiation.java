@@ -2,9 +2,9 @@ package com.tex.hackathon.demo.model.thirdparty.paymentRequest;
 
 public class Initiation
 {
-    private PaymentAccount creditorPaymentAccount;
+    private PaymentAccount creditorAccount;
 
-    private PaymentAccount debtorPaymentAccount;
+    private PaymentAccount debtorAccount;
 
     private String EndToEndIdentification;
 
@@ -14,24 +14,20 @@ public class Initiation
 
     private String InstructionIdentification;
 
-    public PaymentAccount getCreditorPaymentAccount()
-    {
-        return creditorPaymentAccount;
+    public PaymentAccount getCreditorAccount() {
+        return creditorAccount;
     }
 
-    public void setCreditorPaymentAccount(PaymentAccount creditorPaymentAccount)
-    {
-        this.creditorPaymentAccount = creditorPaymentAccount;
+    public void setCreditorAccount(PaymentAccount creditorAccount) {
+        this.creditorAccount = creditorAccount;
     }
 
-    public PaymentAccount getDebtorPaymentAccount()
-    {
-        return debtorPaymentAccount;
+    public PaymentAccount getDebtorAccount() {
+        return debtorAccount;
     }
 
-    public void setDebtorPaymentAccount(PaymentAccount debtorPaymentAccount)
-    {
-        this.debtorPaymentAccount = debtorPaymentAccount;
+    public void setDebtorAccount(PaymentAccount debtorAccount) {
+        this.debtorAccount = debtorAccount;
     }
 
     public String getEndToEndIdentification ()
@@ -74,9 +70,4 @@ public class Initiation
         this.InstructionIdentification = InstructionIdentification;
     }
 
-    @Override
-    public String toString()
-    {
-        return "ClassPojo [creditorPaymentAccount = "+ creditorPaymentAccount +", debtorPaymentAccount = "+ debtorPaymentAccount +", EndToEndIdentification = "+EndToEndIdentification+", InstructedAmount = "+InstructedAmount+", RemittanceInformation = "+RemittanceInformation+", InstructionIdentification = "+InstructionIdentification+"]";
-    }
 }
