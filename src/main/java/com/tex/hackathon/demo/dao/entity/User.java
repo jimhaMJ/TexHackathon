@@ -1,9 +1,6 @@
 package com.tex.hackathon.demo.dao.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class User {
@@ -12,12 +9,30 @@ public class User {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
+    @Column(name = "PROFILE_ID")
     private String profileId;
+
+    @Column(name = "NAME")
     private String name;
+
+    @Column(name = "EMAIL")
     private String email;
+
+    @Column(name = "CUSTOMER_ID")
     private String customerId;
+
+    @Column(name = "PASSWORD")
     private String password;
+
+    @Column(name = "USER_TYPE")
     private String userType;
+
+    @Column(name = "LATITUDE")
+    private String latitude;
+
+    @Column(name = "LONGITUDE")
+    private String longitude;
+
 
     public long getId() {
         return id;
@@ -62,5 +77,21 @@ public class User {
 
     public void setUserType(String userType) {
         this.userType = userType;
+    }
+
+    public String getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(String latitude) {
+        this.latitude = latitude;
+    }
+
+    public String getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(String longitude) {
+        this.longitude = longitude;
     }
 }
